@@ -45,9 +45,9 @@ jobs:
           node-version: '20'
           # cache: 'npm'  <-- ★削除: package-lock.jsonがないとエラーになるため無効化
 
-      - name: Install dependencies (Tailwind etc.)
+#      - name: Install dependencies (Tailwind etc.)
         # run: npm ci   <-- ★削除: ciコマンドはロックファイル必須のため install に変更
-        run: npm install
+#        run: npm install
 
       - name: Setup Hugo
         uses: peaceiris/actions-hugo@v3
