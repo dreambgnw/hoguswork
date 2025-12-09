@@ -48,7 +48,7 @@ toc: true
 物販エリアにいる片手間で聞いていましたが、Nosskeyなど興味深い内容がありましたね。  
 以下リンクより配信アーカイブが見れます、興味がございましたらご覧ください。
 
-{{< responsive_video src="https://www.youtube.com/embed/Y4cWAlnve9s" >}}
+<iframe width="989" height="556" src="https://www.youtube.com/embed/Y4cWAlnve9s" title="Nosrasia 2025" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
 ### BitChatチャレンジ
 
