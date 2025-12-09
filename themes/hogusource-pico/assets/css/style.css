@@ -164,7 +164,13 @@
     transform: rotate(180deg);
 }
 .toc-content {
-    text-align: left;
+    text-align: right; /* Align text to the right for vertical-rl */
+    writing-mode: vertical-rl; /* Set text to vertical, right-to-left */
+    white-space: nowrap; /* Prevent text from wrapping */
+    width: min-content; /* Adjust width to content */
+    height: auto; /* Adjust height automatically */
+    overflow-x: auto; /* Add horizontal scroll if content overflows */
+    padding: 1.5rem 1rem; /* Adjust padding for vertical layout */
 }
 
 /* Responsive YouTube Embeds */
