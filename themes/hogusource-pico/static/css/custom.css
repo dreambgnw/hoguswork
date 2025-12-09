@@ -1,56 +1,90 @@
-/* =======================================
-   Minimal Custom CSS for Tailwind Theme
-   Tailwindのユーティリティクラスを最大限活用
-======================================= */
-
-/* --- フォント設定のみ --- */
+/* SourceHanSerifJP フォントの定義 */
 @font-face {
-  font-family: "SourceHanSerifJP";
-  src: url("/fonts/SourceHanSerifJP.otf") format("opentype");
-  font-display: swap;
+  font-family: 'SourceHanSerifJP';
+  src: url('/fonts/SourceHanSerifJP.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
 }
 
-/* --- ダークモード対応のカスタムプロパティ --- */
-:root {
-  --accent-color: #5ca9c9;
-  --accent-dark: #4a87a1;
+@font-face {
+  font-family: 'SourceHanSerifJP';
+  src: url('/fonts/SourceHanSerifJP-Bold.otf') format('opentype');
+  font-weight: bold;
+  font-style: normal;
 }
 
+/* h1, h2, h3 にSourceHanSerifJPを適用 */
+h1, h2, h3 {
+  font-family: 'SourceHanSerifJP', serif;
+}
+
+/*--------------------------------------------------------------
+# Table of Contents (縦書き設定)
+--------------------------------------------------------------*/
+#TableOfContents {
+  writing-mode: vertical-rl;
+  -webkit-writing-mode: vertical-rl;
+  text-orientation: mixed;
+  
+  /* 縦書き用のレイアウト調整 */
+  max-height: 60vh; /* 高さが伸びすぎないように制限 */
+  overflow-x: auto; /* 横スクロールを許可 */
+  overflow-y: hidden;
+  
+  padding: 1rem;
+  margin-bottom: 2rem;
+  border: 1px solid var(--muted-border-color, #eee);
+  border-radius: 0.5rem;
+  background-color: var(--card-background-color, transparent);
+  
+  font-size: 0.9rem;
+  line-height: 1.8;
+}
+
+#TableOfContents ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+#TableOfContents li {
+  margin-left: 1em; /* 縦書きでは行間になります */
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+#TableOfContents a {
+  text-decoration: none;
+  color: var(--primary);
+}
+
+/*--------------------------------------------------------------
+# Logo Switching (Light/Dark)
+--------------------------------------------------------------*/
+.logo-light {
+  display: inline-block;
+}
+
+.logo-dark {
+  display: none;
+}
+
+/* Pico CSSやテーマのダークモード実装に合わせた切り替え */
+/* htmlタグに data-theme="dark" が付与される場合 */
+html[data-theme="dark"] .logo-light {
+  display: none;
+}
+
+html[data-theme="dark"] .logo-dark {
+  display: inline-block;
+}
+
+/* OSのダークモード設定に追従させる場合 */
 @media (prefers-color-scheme: dark) {
-  :root {
-    --accent-color: #5ca9c9;
-    --accent-dark: #6bb8d8;
+  html:not([data-theme="light"]) .logo-light {
+    display: none;
   }
-}
-
-/* --- アニメーション --- */
-@keyframes spin {
-  to {
-    transform: rotate(360deg);
+  html:not([data-theme="light"]) .logo-dark {
+    display: inline-block;
   }
-}
-
-.animate-spin {
-  animation: spin 1s linear infinite;
-}
-
-/* --- カスタムユーティリティ（必要最小限） --- */
-.text-balance {
-  text-wrap: balance;
-}
-
-/* --- Author Icon Hover Effect --- */
-.author-icon-container:hover .icon-front,
-.author-icon-container:hover .icon-front-dark {
-  opacity: 0;
-}
-.author-icon-container .icon-back,
-.author-icon-container .icon-back-dark,
-.author-icon-container .icon-back-dark-fallback {
-  opacity: 0;
-}
-.author-icon-container:hover .icon-back,
-.author-icon-container:hover .icon-back-dark,
-.author-icon-container:hover .icon-back-dark-fallback {
-  opacity: 1;
 }
