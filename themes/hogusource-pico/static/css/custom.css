@@ -1,4 +1,6 @@
-/* SourceHanSerifJP フォントの定義 */
+/*--------------------------------------------------------------
+# Typography (フォント設定)
+--------------------------------------------------------------*/
 @font-face {
   font-family: 'SourceHanSerifJP';
   src: url('/fonts/SourceHanSerifJP.otf') format('opentype');
@@ -13,22 +15,21 @@
   font-style: normal;
 }
 
-/* h1, h2, h3 にSourceHanSerifJPを適用 */
 h1, h2, h3 {
   font-family: 'SourceHanSerifJP', serif;
 }
 
 /*--------------------------------------------------------------
-# Table of Contents (縦書き設定)
+# Table of Contents (目次: 縦書き設定)
 --------------------------------------------------------------*/
 #TableOfContents {
   writing-mode: vertical-rl;
   -webkit-writing-mode: vertical-rl;
   text-orientation: mixed;
   
-  /* 縦書き用のレイアウト調整 */
-  max-height: 60vh; /* 高さが伸びすぎないように制限 */
-  overflow-x: auto; /* 横スクロールを許可 */
+  /* 縦書きレイアウト調整 */
+  max-height: 60vh;
+  overflow-x: auto;
   overflow-y: hidden;
   
   padding: 1rem;
@@ -48,7 +49,7 @@ h1, h2, h3 {
 }
 
 #TableOfContents li {
-  margin-left: 1em; /* 縦書きでは行間になります */
+  margin-left: 1em; /* 縦書き時の行間 */
   margin-top: 0;
   margin-bottom: 0;
 }
@@ -59,24 +60,40 @@ h1, h2, h3 {
 }
 
 /*--------------------------------------------------------------
-# Logo Switching (Light/Dark)
+# Header & Logo (ヘッダーとロゴ)
 --------------------------------------------------------------*/
+/* ロゴリンクのレイアウト */
+.header-logo-link {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+}
+
+/* ロゴ画像の基本スタイル */
+.header-logo-img {
+  max-height: 3rem;
+  width: auto;
+  display: block; /* 画像の下の隙間を消す */
+}
+
+/* ロゴのライト/ダーク切り替えロジック
+  デフォルトはライトモード表示
+*/
 .logo-light {
-  display: inline-block;
+  display: block;
 }
 
 .logo-dark {
   display: none;
 }
 
-/* Pico CSSやテーマのダークモード実装に合わせた切り替え */
-/* htmlタグに data-theme="dark" が付与される場合 */
+/* htmlタグに data-theme="dark" が付与された場合 (Pico CSS等の仕様) */
 html[data-theme="dark"] .logo-light {
   display: none;
 }
 
 html[data-theme="dark"] .logo-dark {
-  display: inline-block;
+  display: block;
 }
 
 /* OSのダークモード設定に追従させる場合 */
@@ -85,6 +102,6 @@ html[data-theme="dark"] .logo-dark {
     display: none;
   }
   html:not([data-theme="light"]) .logo-dark {
-    display: inline-block;
+    display: block;
   }
 }

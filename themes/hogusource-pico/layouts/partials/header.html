@@ -1,10 +1,10 @@
 <nav class="container-fluid">
   <ul>
     <li>
-      <a href="{{ .Site.BaseURL }}" class="contrast" style="display: flex; align-items: center;">
-        {{/* ロゴ画像の切り替え実装: CSSで表示非表示を制御します */}}
-        <img src="{{ "img/quickinstant.png" | relURL }}" alt="{{ .Site.Title }}" class="logo-light" style="max-height: 3rem; width: auto;">
-        <img src="{{ "img/quickinstant-dark.png" | relURL }}" alt="{{ .Site.Title }}" class="logo-dark" style="max-height: 3rem; width: auto;">
+      <a href="{{ .Site.BaseURL }}" class="contrast header-logo-link">
+        {{/* ロゴ画像の切り替え用マークアップ */}}
+        <img src="{{ "img/quickinstant.png" | relURL }}" alt="{{ .Site.Title }}" class="header-logo-img logo-light">
+        <img src="{{ "img/quickinstant-dark.png" | relURL }}" alt="{{ .Site.Title }}" class="header-logo-img logo-dark">
       </a>
     </li>
   </ul>
