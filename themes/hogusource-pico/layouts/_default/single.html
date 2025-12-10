@@ -50,7 +50,14 @@
           <span> / {{ . }}</span>
         {{ end }}
       </small>
-
+            {{ if .TableOfContents }}
+      <div class="toc-vertical-container">
+        <h2>目次</h2>
+        <div class="toc-vertical">
+          {{ .TableOfContents }}
+        </div>
+      </div>
+      {{ end }}
       <div>
         {{ .Content }}
       </div>

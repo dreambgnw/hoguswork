@@ -105,3 +105,35 @@ html[data-theme="dark"] .logo-dark {
     display: block;
   }
 }
+
+/* 縦書き TOC */
+.toc-vertical-container {
+  margin: 2rem 0;
+  padding: 1rem;
+  background: #f7f7f7;
+  border-radius: 12px;
+}
+
+.toc-vertical {
+  writing-mode: vertical-rl;
+  text-orientation: upright;
+  font-size: 0.9rem;
+  line-height: 1.6;
+  padding: 1rem;
+}
+
+.toc-vertical ul,
+.toc-vertical li {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.toc-vertical a {
+  color: #3366cc;
+  text-decoration: none;
+}
+
+.toc-vertical a:hover {
+  text-decoration: underline;
+}
